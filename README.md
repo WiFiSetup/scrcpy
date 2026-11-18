@@ -1,3 +1,7 @@
+> **WiFiSetup fork — Android Desk:** This fork adds a Windows device dashboard,
+> compact controls, tray menus, and a guided Add device workflow.
+> See [Android Desk setup and source](desktop-dashboard/README.md).
+
 > [!WARNING]
 > **This GitHub repo (<https://github.com/Genymobile/scrcpy>) is the only official
 source for the project. Do not download releases from random websites, even if

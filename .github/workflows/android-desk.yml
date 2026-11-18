@@ -1,0 +1,22 @@
+name: Android Desk
+on:
+  push:
+    paths: ['desktop-dashboard/**', '.github/workflows/android-desk.yml']
+  pull_request:
+    paths: ['desktop-dashboard/**', '.github/workflows/android-desk.yml']
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - run: dotnet build desktop-dashboard/AndroidDesk.csproj -c Release --warnaserror
+      - run: dotnet run --project desktop-dashboard/tests/LogicTests.csproj -c Release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AndroidDesk-windows
+          path: desktop-dashboard/bin/Release/net8.0-windows/
